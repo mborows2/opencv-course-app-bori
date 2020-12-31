@@ -8,8 +8,8 @@ def softmax(x):
     return np.exp(x) / np.sum(np.exp(x), axis=0)
 
 def predictDigit(image,net):
-    # Save image    
-    cv2.imwrite("test.jpg",image.image_data)
+    # Save image
+    cv2.imwrite("test.jpg",image)
 
     # Read image in grayscale mode
     img = cv2.imread("test.jpg",0)

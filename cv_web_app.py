@@ -6,15 +6,12 @@ import cv2
 from utils import *
 
 def prediction(net):   
+    # Draw or clear?
+    drawing_mode = st.checkbox("Draw or clear?",True)
+
+    # Create a canvas component
     image_data = st_canvas(
-        fill_color="rgb(15, 15, 15)", 
-        stroke_width = 15,
-        stroke_color = "rgb(255,255,255)",
-        background_color = "rgb(0,0,0)",
-        height=280,
-        width=280, 
-        update_streamlit = True,
-        key="canvas",
+        15, '#FFF', '#000', height=280,width=280, drawing_mode=drawing_mode, key="canvas"
     )
 
     # Predicting the image
@@ -33,7 +30,8 @@ def main():
     st.write("\n\n")
     st.write("Draw a digit below and click on Predict button")
     st.write("\n")
-    st.write("To clear the digit, uncheck trashcan icon")
+    st.write("To clear the digit, uncheck checkbox, double click on the digit or refresh the page")
+    st.write("To draw the digit, check the checkbox")
 
     prediction(net)
 
